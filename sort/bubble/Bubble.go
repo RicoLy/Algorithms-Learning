@@ -2,6 +2,9 @@ package bubble
 
 // 冒泡排序
 func Sort(arr []int) {
+	if len(arr) < 2 {
+		return
+	}
 
 	for first := len(arr) - 1; ; first-- {
 		//终止条件，也可通过外层循环来控制
@@ -20,6 +23,9 @@ func Sort(arr []int) {
 }
 
 func Sort2(arr []int) {
+	if len(arr) < 2 {
+		return
+	}
 	flag := true
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr)-1-i; j++ {

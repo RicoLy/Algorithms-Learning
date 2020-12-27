@@ -36,3 +36,17 @@ func InsertSort(arr []int) {
 		}
 	}
 }
+
+func InsertSort2(arr []int) {
+	if len(arr) < 2 {
+		return
+	}
+	for i := 1; i < len(arr); i++ {
+		temp := arr[i]
+		j := i-1
+		for ; j >= 0 && arr[j] < temp; j-- {
+			arr[j+1] = arr[j]
+		}
+		arr[j+1] = temp
+	}
+}

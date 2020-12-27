@@ -7,13 +7,13 @@ import (
 )
 
 func TestQuickSort(t *testing.T) {
-	list := utils.GetArrayOfSize(1000000)
-
+	list := utils.GetArrayOfSize(100)
+	//list := []int{1,99,6,999,5,2,}
 	//Sort(list)
 	//HoareSort(list, 0, len(list)-1)
 	// LomutoSort(list, 0, len(list)-1)
-	QuickSort(list, 0, len(list)-1)
-
+	Quick(list, 0, len(list)-1)
+	//fmt.Println(list)
 	for i := 0; i < len(list)-2; i++ {
 		if list[i] > list[i+1] {
 			fmt.Println(list)
@@ -27,7 +27,7 @@ func benchmarkQuickSort(n int, b *testing.B) {
 	list := utils.GetArrayOfSize(n)
 
 	for i := 0; i < b.N; i++ {
-		Sort(list)
+		Quick(list, 0, len(list)-1)
 		// Sort(list)LomutoSort
 		// LomutoSort(list, 0, len(list)-1)
 		//HoareSort(list, 0, len(list)-1)

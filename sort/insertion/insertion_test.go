@@ -7,7 +7,7 @@ import (
 )
 
 func TestInsertionSort(t *testing.T) {
-	list := utils.GetArrayOfSize(1000000)
+	list := utils.GetArrayOfSize(100000)
 
 	Sort(list)
 
