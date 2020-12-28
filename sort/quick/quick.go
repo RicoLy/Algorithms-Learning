@@ -27,28 +27,30 @@ func QuickSort(arr []int, start, end int) {
 }
 
 func Quick(arr []int, start, end int) {
-	if start < end {
-		i, j := start, end
-		key := arr[(start+end)/2]
-		for i < j {
-			for arr[i] < key {
-				i++
-			}
-			for arr[j] > key {
-				j--
-			}
-			if i <= j {
-				arr[i], arr[j] = arr[j], arr[i]
-				i++
-				j--
-			}
+	if start >= end {
+		return
+	}
+	i, j := start, end
+	key := arr[(start+end)/2]
+	for i < j {
+		for arr[i] < key {
+			i++
 		}
-		if start < j {
-			Quick(arr, start, j)
+		for arr[j] > key {
+			j--
 		}
-		if end > i {
-			Quick(arr, i, end)
+		if i <= j {
+			arr[i], arr[j] = arr[j], arr[i]
+			i++
+			j--
 		}
+	}
+
+	if start < j {
+		Quick(arr, start, j)
+	}
+	if end > i {
+		Quick(arr, i, end)
 	}
 }
 

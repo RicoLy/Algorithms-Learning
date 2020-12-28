@@ -9,7 +9,7 @@ import (
 func TestMergeSort(t *testing.T) {
 	list := utils.GetArrayOfSize(1000000)
 
-	list = MergeSort(list)
+	list = MergeSort1(list)
 
 	for i := 0; i < len(list)-2; i++ {
 		if list[i] > list[i+1] {
