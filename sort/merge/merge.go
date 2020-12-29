@@ -35,24 +35,24 @@ func MergeSort1(arr []int) []int {
 	key := len(arr) / 2
 	left := MergeSort1(arr[:key])
 	right := MergeSort1(arr[key:])
-
 	return merge1(left, right)
 }
 
 func merge1(left, right []int) []int {
-	l, r := len(left), len(right)
-	n, m := 0, 0
 	result := make([]int, 0)
-	for n < l && m < r  {
-		if left[n] < right[m] {
-			result = append(result, left[n])
-			n++
+	l := len(left)
+	r := len(right)
+	n, m := 0, 0
+	for n < l && m < r {
+		if left[m] < right[n] {
+			result = append(result, left[m])
+			m++
 			continue
 		}
-		result = append(result, right[m])
-		m++
+		result = append(result, right[n])
+		n++
 	}
-	result = append(result, left[n:]...)
-	result = append(result, right[m:]...)
+	result = append(result, right[n:]...)
+	result = append(result, left[m:]...)
 	return result
 }

@@ -32,7 +32,7 @@ func Quick(arr []int, start, end int) {
 	}
 	i, j := start, end
 	key := arr[(start+end)/2]
-	for i < j {
+	for i <= j  {
 		for arr[i] < key {
 			i++
 		}
@@ -44,13 +44,12 @@ func Quick(arr []int, start, end int) {
 			i++
 			j--
 		}
-	}
-
-	if start < j {
-		Quick(arr, start, j)
-	}
-	if end > i {
-		Quick(arr, i, end)
+		if start < j {
+			Quick(arr, start, j)
+		}
+		if i < end {
+			Quick(arr, i, end)
+		}
 	}
 }
 

@@ -42,9 +42,9 @@ func InsertSort2(arr []int) {
 		return
 	}
 	for i := 1; i < len(arr); i++ {
+		j := i - 1
 		temp := arr[i]
-		j := i-1
-		for ; j >= 0 && arr[j] < temp; j-- {
+		for ; j >= 0 && arr[j] > temp; j-- {
 			arr[j+1] = arr[j]
 		}
 		arr[j+1] = temp

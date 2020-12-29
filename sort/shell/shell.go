@@ -47,15 +47,14 @@ func ShellSort1(arr []int) {
 	if len(arr) < 2 {
 		return
 	}
-	for inc := len(arr) / 2; inc > 0; inc /= 2 {
-
+	for inc := len(arr) / 2; inc >= 0; inc /= 2 {
 		for i := inc; i < len(arr); i++ {
 			temp := arr[i]
 			j := i - inc
-			for ; j >= 0 && temp < arr[j]; j -= inc {
-				arr[j+inc] = arr[j]
+			for ; j >= 0 && arr[j] > temp; j -= inc {
+				arr[j+1] = arr[j]
 			}
-			arr[j+inc] = temp
+			arr[j+1] = temp
 		}
 	}
 }
